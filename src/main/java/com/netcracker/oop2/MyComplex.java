@@ -1,5 +1,7 @@
 package com.netcracker.oop2;
 
+import com.netcracker.oop1.MyTriangle;
+
 public class MyComplex {
 
     private double real = 0.0;
@@ -22,11 +24,11 @@ public class MyComplex {
     }
 
     public boolean equals(double real, double imag) {
-        return real == this.real && imag == this.imag;
+        return MyTriangle.isEqual(real, this.real) && MyTriangle.isEqual(imag, this.imag);
     }
 
     public boolean equals(MyComplex right){
-        return right.getReal()==this.real && right.getImag()==this.imag;
+        return MyTriangle.isEqual(right.getReal(),this.real) && MyTriangle.isEqual(right.getImag(),this.imag);
     }
 
     public double getReal() {

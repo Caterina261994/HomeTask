@@ -25,6 +25,10 @@ public class MyTriangle {
         return "MyTriangle[v1 = " + v1.toString() + ", v2 = " + v2.toString() + ", v3 = " + v3.toString() + "]";
     }
 
+    public static boolean isEqual(double a, double b){
+        return Math.abs(a-b) <= 0.000001;
+    }
+
     public double getPerimeter(){
         return v1.distance(v2) + v1.distance(v3) + v2.distance(v3);
     }
@@ -33,11 +37,12 @@ public class MyTriangle {
         double side1 = v1.distance(v2);
         double side2 = v1.distance(v3);
         double side3 = v2.distance(v3);
-        if (side1 == side2 && side2 == side3){
+        if (isEqual(side1, side2) && isEqual(side2, side3)){
             return "Equilateral";
-        }else if( side1==side2 || side2 == side3 || side1 == side3){
+        }else if( isEqual(side1, side2) || isEqual(side2, side3) || isEqual(side1, side3)){
             return "Isosceles";
         }
         return "Scalene";
     }
+
 }
